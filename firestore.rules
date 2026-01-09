@@ -1,0 +1,31 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  	match /user_info/{docId}{
+     allow read, write: if true;
+    }
+    match /schedule/{docId} {
+      allow read: if true;
+      allow write: if get(/databases/$(database)/documents/user_info/$(request.auth.uid)).data.role == 'teacher';
+    }
+    match /tokens/{docId} {
+      // 1. 읽기 (QR 코드 검증):
+      // 모든 로그인한 교인(user)은 현재 유효한 토큰 값을 읽을 수 있어야 함.
+      allow read: if request.auth != null;
+      
+      // 2. 쓰기 (QR 코드 생성)
+      // 'users/{uid}' 문서에서 'role' 필드가 'teacher'인 계정만 쓰기 가능
+      allow write: if get(/databases/$(database)/documents/user_info/$(request.auth.uid)).data.role == 'teacher';
+    }
+    match /attendance_students/{docId}{
+    	allow read, write, update: if true;
+    }
+    match /attendance_students_all/{docId}{
+    	allow read, write, update: if true;
+    }
+    match /attendance_students_all/{studentId}/attendance_history/{historyId}{
+  		allow read, write, update: if true;
+    }
+  }
+}
