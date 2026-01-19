@@ -4,7 +4,7 @@ import {
   TableContainer, TableHead, TableRow, Chip, Collapse, 
   IconButton, TextField, MenuItem, FormControl, InputLabel, Select, Stack,
   Dialog, DialogTitle, DialogContent, DialogActions, 
-  Button, Tooltip, Divider
+  Button, Tooltip
 } from '@mui/material';
 import { 
   KeyboardArrowDown, KeyboardArrowUp, Search as SearchIcon, 

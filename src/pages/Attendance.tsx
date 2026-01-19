@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { 
   Paper, Typography, Box, Table, TableBody, TableCell, 
   TableContainer, TableHead, TableRow, Checkbox, 
   FormControl, InputLabel, Select, MenuItem, Stack, TextField, CircularProgress 
 } from '@mui/material';
 import { db } from '../firebase';
-import { collection, getDocs, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, serverTimestamp, setDoc } from 'firebase/firestore';
 
 export default function Attendance() {
   const [loading, setLoading] = useState(true);

@@ -1,8 +1,7 @@
-import React from 'react';
 import { Logout as LogoutIcon } from '@mui/icons-material'; // 아이콘 추가
 import { signOut } from 'firebase/auth';
 import { Box, CssBaseline, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material';
-import { Dashboard as DashboardIcon, Announcement as AnnouncementIcon, People as PeopleIcon, Settings as SettingsIcon } from '@mui/icons-material';
+import { Dashboard as DashboardIcon, People as PeopleIcon, Schedule, Notifications, Bookmark  } from '@mui/icons-material';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 
@@ -24,11 +23,11 @@ export default function AdminLayout() {
 
   const menuItems = [
     { text: '대시보드', icon: <DashboardIcon />, path: '/' },
-    { text: '공지사항 관리', icon: <AnnouncementIcon />, path: '/notices' },
-    { text: '일정 관리', icon: <AnnouncementIcon />, path: '/schedule' },
+    //{ text: '공지사항 관리', icon: <AnnouncementIcon />, path: '/notices' },
+    { text: '일정 관리', icon: <Schedule />, path: '/schedule' },
     { text: '유저 관리', icon: <PeopleIcon />, path: '/users' },
-    { text: '출석 관리', icon: <PeopleIcon />, path: '/attendance' },
-    { text: '알림 관리', icon: <PeopleIcon />, path: '/notifications' },
+    { text: '출석 관리', icon: <Bookmark />, path: '/attendance' },
+    { text: '알림 관리', icon: <Notifications />, path: '/notifications' },
   ];
 
   return (
@@ -36,7 +35,7 @@ export default function AdminLayout() {
       <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
-          <Typography variant="h6" noWrap>⛪ 성당 관리자 시스템</Typography>
+          <Typography onClick={() => navigate('/')} variant="h6" noWrap>⛪ 성당 관리자 시스템</Typography>
         </Toolbar>
 
       </AppBar>
