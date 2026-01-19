@@ -10,6 +10,7 @@ import Schedule from './pages/Schedule';
 import { signOut } from 'firebase/auth';
 import Attendance from './pages/Attendance';
 import Users from './pages/Users';
+import Notifications from './pages/Notifications';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -56,6 +57,7 @@ useEffect(() => {
           <Route path="schedule" element={<Schedule />} />
           <Route path="attendance" element={<Attendance/>} />
           <Route path="users" element={<Users />} />
+          <Route path="notifications" element={<Notifications />} />
           {/* 다른 페이지들... */}
             <Route path="notices" element={<div>공지사항 관리 화면 (준비중)</div>} />
             

@@ -28,6 +28,7 @@ export default function AdminLayout() {
     { text: '일정 관리', icon: <AnnouncementIcon />, path: '/schedule' },
     { text: '유저 관리', icon: <PeopleIcon />, path: '/users' },
     { text: '출석 관리', icon: <PeopleIcon />, path: '/attendance' },
+    { text: '알림 관리', icon: <PeopleIcon />, path: '/notifications' },
   ];
 
   return (

@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -22,3 +23,5 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);   // 데이터베이스
 export const auth = getAuth(app);       // 인증(로그인)
 // analytics는 웹 앱 분석용이라 관리자 페이지에선 일단 빼도 무관합니다.
+
+export const functions = getFunctions(app);
